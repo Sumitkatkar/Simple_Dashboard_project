@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Products Management</h1>
+        <div class="add-btn">
+            <a href="index.html" class="btn">Home</a>
+            <button class="btn" onclick="addProduct()">Add Product</button>
+            <a href="orders.html" class="btn">Manage Orders</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="product-list">
+                <!-- Mock data will be dynamically generated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for adding/editing product -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add/Edit Product</h2>
+            <form id="productForm">
+                <label for="productName">Name:</label>
+                <input type="text" id="productName" required><br><br>
+                <label for="productCategory">Category:</label>
+                <input type="text" id="productCategory" required><br><br>
+                <label for="productPrice">Price:</label>
+                <input type="number" id="productPrice" required><br><br>
+                <label for="productStock">Stock Quantity:</label>
+                <input type="number" id="productStock" required><br><br>
+                <button class="btn" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for products
+        const products = [
+            { name: "Puma", category: "Shoes", price: 1099, stock: 10 },
+            { name: "USPA", category: "Shirt", price: 2049, stock: 50 },
+            { name: "Boat", category: "Watch", price: 1599, stock: 75 }
+        ];
+
+        // Function to display products
+        function displayProducts() {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = "";
+            products.forEach(product => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.category}</td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>
+                        <button class="btn" onclick="editProduct('${product.name}')">Edit</button>
+                        <button class="btn" onclick="deleteProduct('${product.name}')">Delete</button>
+                    </td>
+                `;
+                productList.appendChild(row);
+            });
+        }
+
+        // Function to open modal for adding/editing product
+        function addProduct() {
+            document.getElementById("productForm").reset(); // Reset form fields
+            document.getElementById("productModal").style.display = "block";
+        }
+        document.getElementById("productForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Get form input values
+            const productName = document.getElementById("productName").value;
+            const productCategory = document.getElementById("productCategory").value;
+            const productPrice = document.getElementById("productPrice").value;
+            const productStock = document.getElementById("productStock").value;
+
+            // Create a new row for the product table
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+        <td>${productName}</td>
+        <td>${productCategory}</td>
+        <td>${productPrice}</td>
+        <td>${productStock}</td>
+        <td>
+            <button>Edit</button>
+            <button>Delete</button>
+        </td>
+    `;
+
+            // Append the new row to the table
+            const tableBody = document.querySelector("#productsTable tbody");
+            tableBody.appendChild(newRow);
+
+            // Clear form inputs
+            document.getElementById("productName").value = "";
+            document.getElementById("productCategory").value = "";
+            document.getElementById("productPrice").value = "";
+            document.getElementById("productStock").value = "";
+
+            // Close modal or perform any other necessary action
+            closeModal();
+        });
+        // Function to close modal
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+
+        // Function to save product
+        document.getElementById("productForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const productName = document.getElementById("productName").value;
+            const productCategory = document.getElementById("productCategory").value;
+            const productPrice = parseFloat(document.getElementById("productPrice").value);
+            const productStock = parseInt(document.getElementById("productStock").value);
+            // Mock function to save/update product
+            console.log("Product saved/updated:", productName, productCategory, productPrice, productStock);
+            closeModal();
+        });
+
+        // Function to edit product
+        function editProduct(name) {
+            // Mock function to retrieve product details and populate form
+            console.log("Editing product:", name);
+            // For demonstration, let's assume the modal opens with the product details filled for editing
+            document.getElementById("productName").value = name;
+            document.getElementById("productModal").style.display = "block";
+        }
+
+        // Function to delete product
+        function deleteProduct(name) {
+            // Mock function to delete product
+            console.log("Deleting product:", name);
+            // For demonstration, let's assume the product is deleted from the list
+            products.splice(products.findIndex(product => product.name === name), 1);
+            displayProducts();
+        }
+
+        // Display products on page load
+        window.onload = function () {
+            displayProducts();
+        };
+    </script>
+</body>
+
+</html>

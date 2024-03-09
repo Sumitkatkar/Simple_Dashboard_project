@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="actions">
+        
+    </div>
+    <div class="container" id="orders">
+        <h1>Orders Management </h1>
+        <div class="add-btn">
+            <a href="index.html" class="btn">Home</a> 
+            <a href="products.html" class="btn">Manage Products</a> 
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12345</td>
+                    <td>Sumit Katkar</td>
+                    <td>2024-03-08</td>
+                    <td>
+                        <select id="order12345Status">
+                            <option value="Processing" selected>Processing</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button onclick="viewOrderDetails(12345,'Sumit Katkar')">View Details</button>
+                        <button onclick="updateOrderStatus(12345,'Sumit Katkar')">Update Status</button>
+                        <button onclick="deleteOrder(12345)">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>67890</td>
+                    <td>Sayali Jagdale</td>
+                    <td>2024-03-07</td>
+                    <td>
+                        <select id="order67890Status">
+                            <option value="Processing">Processing</option>
+                            <option value="Shipped" selected>Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button onclick="viewOrderDetails(67890,'Sayali Jagdale')">View Details</button>
+                        <button onclick="updateOrderStatus(67890,'Sayali Jagdale')">Update Status</button>
+                        <button onclick="deleteOrder(67890)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+    
+        function viewOrderDetails(orderId,name) {
+            alert(name+ " Order ID: " + orderId);
+        }
+
+        function updateOrderStatus(orderId,name) {
+            const status = document.getElementById('order' + orderId + 'Status').value;
+            alert(name+" order status for Order ID: " + orderId + " to " + status);
+        }
+
+        function deleteOrder(orderId) {
+            alert("Delete order with Order ID: " + orderId);
+        }
+    </script>
+</body>
+</html>
