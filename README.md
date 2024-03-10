@@ -35,3 +35,48 @@ docker run -d -p 8080:80 my-web-app
 Open a web browser and navigate to http://localhost:8080.
 
 
+# Output
+
+### Home page 
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/4a4e5198-585a-4545-a3b2-485f4cc3df64)
+
+### Manage Products page
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/9e5673cb-30b2-4cf9-982a-d7e66c019e1d)
+
+Here you have add, edit, delete functionality for products
+
+**add product**  
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/9187f4a0-6fec-4a5d-8112-49205b0e6bff)
+
+**edit product**
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/6ac0e6e9-a2fe-4e40-a552-b5a6c9dc5201)
+
+**delete product**
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/f44b4aef-fd4b-495c-bef1-6be4d77e2eed) 
+
+### Manage Orders 
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/b96e97ed-b1dd-41ca-9c62-d1b3991ec19e)
+
+**view details** alert will be open 
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/9088c4f5-478e-43c1-acf8-4da7542d3a1f) 
+
+**Update status** alert will be open 
+
+![image](https://github.com/Sumitkatkar/Simple_Dashboard_project/assets/118961073/92a69b55-6a6f-418d-ac1b-31225576f089)
+
+
+
+
+
+
+
+
+
+
